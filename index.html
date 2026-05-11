@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>The Coin-Op Trinity — Kaminkow · Jarvis · Gomez</title>
+<meta name="description" content="Three lifers, three formats, still shipping. Eugene Jarvis (Raw Thrills · Defender, Robotron, Cruis'n), George Gomez (Stern Pinball · Tron, Lord of the Rings, Deadpool), Joe Kaminkow (Aristocrat · Wheel of Fortune, NFL slots, The Beatles). A tribute by Gordon Bellamy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #141826;
+    --surface-2: #1c2236;
+    --ink: #f5f0e8;
+    --ink-dim: #b6b1a8;
+    --ink-mute: #6b6f7c;
+    --gold: #d4a356;
+    --gold-bright: #f0c878;
+    --neon: #ff5fa2;
+    --cyan: #5ac8fa;
+    --green: #6bd49a;
+    --crimson: #c84141;
+    --rule: rgba(212, 163, 86, 0.18);
+    /* Trio colors — one each */
+    --joe: #d4a356;       /* gold — slots */
+    --joe-glow: rgba(212, 163, 86, 0.5);
+    --eugene: #ff5fa2;    /* neon pink — arcade */
+    --eugene-glow: rgba(255, 95, 162, 0.5);
+    --george: #5ac8fa;    /* cyan — pinball backglass */
+    --george-glow: rgba(90, 200, 250, 0.5);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--gold); color: var(--bg); }
+  a { color: var(--gold); -webkit-tap-highlight-color: rgba(212, 163, 86, 0.2); }
+  a:hover { color: var(--gold-bright); }
+
+  .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  /* HERO */
+  header.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 4rem;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 25%, var(--joe-glow), transparent 35%),
+      radial-gradient(ellipse at 80% 30%, var(--eugene-glow), transparent 35%),
+      radial-gradient(ellipse at 50% 80%, var(--george-glow), transparent 40%);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 980px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+  h1.trinity {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 8.5vw, 6.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.2rem;
+  }
+  h1.trinity .joe-c { color: var(--joe); font-style: italic; text-shadow: 0 0 24px var(--joe-glow); }
+  h1.trinity .eugene-c { color: var(--eugene); font-style: italic; text-shadow: 0 0 24px var(--eugene-glow); }
+  h1.trinity .george-c { color: var(--george); font-style: italic; text-shadow: 0 0 24px var(--george-glow); }
+  h1.trinity .dot { color: var(--ink-mute); font-style: normal; margin: 0 0.3rem; }
+  .tagline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+    color: var(--ink-dim);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.4;
+  }
+  .credits-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 0;
+    padding: 1rem 1.6rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .credits-bar span:not(:last-child)::after {
+    content: '·';
+    color: var(--gold);
+    margin: 0 0.9rem;
+    font-weight: bold;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 1.5rem;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+  }
+  h2.section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 2.5rem;
+    max-width: 820px;
+  }
+  h2.section-title em { color: var(--gold); font-style: italic; }
+  p.lede {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-style: italic;
+    color: var(--ink-dim);
+    max-width: 780px;
+    line-height: 1.5;
+    margin: 0 0 2rem;
+  }
+
+  /* TRIO CARDS */
+  .trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 920px) { .trio { grid-template-columns: 1fr; } }
+  .card {
+    background: linear-gradient(180deg, var(--surface), var(--surface-2));
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 2rem 1.6rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card.joe { border-top: 3px solid var(--joe); }
+  .card.eugene { border-top: 3px solid var(--eugene); }
+  .card.george { border-top: 3px solid var(--george); }
+  .card.joe:hover { border-color: rgba(212, 163, 86, 0.4); }
+  .card.eugene:hover { border-color: rgba(255, 95, 162, 0.4); }
+  .card.george:hover { border-color: rgba(90, 200, 250, 0.4); }
+  .card .floor {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .card.joe .floor { color: var(--joe); }
+  .card.eugene .floor { color: var(--eugene); }
+  .card.george .floor { color: var(--george); }
+  .card h3.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.05;
+    margin: 0 0 0.3rem;
+    color: var(--ink);
+  }
+  .card h3 .first { display: block; font-style: italic; opacity: 0.7; font-size: 1.2rem; font-weight: 500; }
+  .card .role {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+  .card .role strong { color: var(--ink); }
+  .card .city {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 1.2rem;
+  }
+  .card .greatest {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 1.2rem 0 0.6rem;
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .card ul li {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+  }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .card ul li small {
+    display: block;
+    color: var(--ink-mute);
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* CROSSROADS */
+  .crossroads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .cross-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.8rem 1.5rem;
+  }
+  .cross-card .kind {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .cross-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin: 0 0 0.6rem;
+    line-height: 1.2;
+  }
+  .cross-card p {
+    color: var(--ink-dim);
+    font-size: 0.94rem;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* TIMELINE */
+  .convening {
+    margin-top: 2rem;
+    border-left: 1px solid var(--rule);
+    padding-left: 2rem;
+  }
+  .conv-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+  .conv-item:last-child { padding-bottom: 0; }
+  .conv-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem;
+    top: 0.45rem;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px var(--bg), 0 0 18px var(--joe-glow);
+  }
+  .conv-item.now::before { background: var(--green); box-shadow: 0 0 0 4px var(--bg), 0 0 18px rgba(107, 212, 154, 0.55); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgba(107, 212, 154, 0.4); }
+    50% { box-shadow: 0 0 0 4px var(--bg), 0 0 26px rgba(107, 212, 154, 0.8); }
+  }
+  .conv-item .when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .conv-item.now .when { color: var(--green); }
+  .conv-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.45rem;
+    margin: 0 0 0.4rem;
+    color: var(--ink);
+  }
+  .conv-item p {
+    margin: 0;
+    color: var(--ink-dim);
+    max-width: 680px;
+    font-size: 0.96rem;
+  }
+
+  /* GROUP THREAD */
+  .thread {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(212, 163, 86, 0.04), rgba(255, 95, 162, 0.03));
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 2rem 1.8rem;
+    max-width: 760px;
+  }
+  .thread .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .thread .name.gordon { color: var(--gold-bright); }
+  .thread .name.joe { color: var(--joe); }
+  .thread .name.eugene { color: var(--eugene); }
+  .thread .name.george { color: var(--george); }
+  .thread blockquote {
+    margin: 0 0 1.6rem;
+    padding: 0;
+    border: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .thread .when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+  }
+  .thread blockquote:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer {
+    padding: 4rem 1.5rem 3rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    margin-top: 2rem;
+  }
+  footer .built {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-dim);
+    margin-bottom: 1rem;
+  }
+  footer .links {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  footer .links a {
+    color: var(--gold);
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+  footer .signoff {
+    margin-top: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.18em;
+  }
+
+  /* iPhone / narrow phones — safe area + tighter padding */
+  @supports (padding: max(0px)) {
+    header.hero { padding-left: max(1.1rem, env(safe-area-inset-left)); padding-right: max(1.1rem, env(safe-area-inset-right)); padding-top: max(5rem, env(safe-area-inset-top) + 3rem); }
+    section { padding-left: max(1.1rem, env(safe-area-inset-left)); padding-right: max(1.1rem, env(safe-area-inset-right)); }
+    footer { padding-bottom: max(3rem, env(safe-area-inset-bottom) + 1.5rem); }
+  }
+  @media (max-width: 540px) {
+    section { padding-top: 3.8rem; padding-bottom: 3.8rem; }
+    header.hero { padding-top: 5rem; padding-bottom: 2.5rem; min-height: auto; }
+    h1.trinity { font-size: clamp(2.2rem, 12vw, 3.6rem); }
+    .tagline { font-size: 1rem; padding: 0 0.2rem; }
+    .eyebrow { font-size: 0.66rem; letter-spacing: 0.22em; }
+    .credits-bar { padding: 0.85rem 1rem; font-size: 0.62rem; letter-spacing: 0.12em; }
+    .credits-bar span:not(:last-child)::after { margin: 0 0.5rem; }
+    .scroll-hint { bottom: 1.2rem; font-size: 0.62rem; }
+    h2.section-title { font-size: clamp(1.7rem, 7.5vw, 2.2rem); margin-bottom: 1.4rem; }
+    .section-label { font-size: 0.66rem; letter-spacing: 0.22em; }
+    p.lede { font-size: 1.05rem; }
+    .trio { gap: 1rem; }
+    .card { padding: 1.5rem 1.2rem; }
+    .card h3.name { font-size: 1.6rem; }
+    .card ul li { font-size: 0.88rem; }
+    .card ul li em { font-size: 0.95rem; }
+    .crossroads-grid { gap: 1rem; }
+    .cross-card { padding: 1.4rem 1.2rem; }
+    .convening { padding-left: 1.4rem; }
+    .conv-item::before { left: -1.85rem; }
+    .conv-item h3 { font-size: 1.2rem; }
+    .conv-item p { font-size: 0.9rem; }
+    .thread { padding: 1.6rem 1.3rem; }
+    .thread blockquote { font-size: 1rem; }
+    footer { padding: 3rem 1.1rem 2.5rem; }
+    footer .built { font-size: 1rem; }
+  }
+
+  /* ───── EDITORIAL (per-person long-form sections) ───── */
+  .editorial {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 7rem 1.5rem;
+    position: relative;
+  }
+  .editorial::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    background: radial-gradient(ellipse at 50% 0%, var(--accent, var(--gold)), transparent 55%);
+  }
+  .editorial.joe { --accent: var(--joe); --accent-glow: var(--joe-glow); }
+  .editorial.eugene { --accent: var(--eugene); --accent-glow: var(--eugene-glow); }
+  .editorial.george { --accent: var(--george); --accent-glow: var(--george-glow); }
+
+  .editorial .runline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.2rem;
+  }
+  .editorial h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.6rem;
+    color: var(--ink);
+  }
+  .editorial h2 .given {
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.58em;
+    color: var(--accent);
+    text-shadow: 0 0 24px var(--accent-glow);
+    opacity: 0.92;
+    margin-bottom: -0.12em;
+  }
+  .editorial .standfirst {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    color: var(--ink-dim);
+    line-height: 1.4;
+    margin: 1.4rem 0 2.4rem;
+    max-width: 780px;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+  .editorial .factrow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2.5rem;
+  }
+  .editorial .factrow .fact { text-align: left; }
+  .editorial .factrow .fact .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 0.35rem;
+  }
+  .editorial .factrow .fact .v {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .editorial .factrow .fact .v strong { color: var(--accent); font-weight: 600; }
+
+  .editorial p {
+    font-size: 1.05rem;
+    line-height: 1.72;
+    color: var(--ink-dim);
+    margin: 0 0 1.3rem;
+    max-width: 760px;
+  }
+  .editorial p strong { color: var(--ink); font-weight: 600; }
+  .editorial p em { color: var(--ink); font-style: italic; }
+  .editorial p a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .editorial p a:hover { border-bottom-color: var(--accent); }
+  .editorial h3.subhead {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.55rem;
+    color: var(--ink);
+    margin: 2.6rem 0 0.8rem;
+    letter-spacing: -0.01em;
+  }
+  .editorial h3.subhead::before {
+    content: '\00a7  ';
+    color: var(--accent);
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .pullquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+    line-height: 1.32;
+    color: var(--ink);
+    border: none;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    margin: 2.6rem 0;
+    border-left: 3px solid var(--accent);
+    max-width: 740px;
+  }
+  .pullquote cite {
+    display: block;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 1rem;
+  }
+
+  .works {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.7rem 1.5rem;
+    margin: 1.8rem 0 2.6rem;
+    padding: 1.4rem 0 0;
+    border-top: 1px dashed var(--rule);
+  }
+  .works .w {
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.05);
+  }
+  .works .w em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    display: block;
+  }
+  .works .w small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  /* CONVERGENCE */
+  .convergence {
+    padding: 7rem 1.5rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .convergence h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem;
+    max-width: 880px;
+  }
+  .convergence h2 .a-joe { color: var(--joe); font-style: italic; }
+  .convergence h2 .a-eugene { color: var(--eugene); font-style: italic; }
+  .convergence h2 .a-george { color: var(--george); font-style: italic; }
+  .convergence .lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+    color: var(--ink-dim);
+    max-width: 820px;
+    line-height: 1.45;
+    margin: 0 0 3rem;
+  }
+  .threads {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .threads .thrd {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) {
+    .threads .thrd { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.6rem 0; }
+  }
+  .threads .thrd .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .threads .thrd h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 0 0.6rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .threads .thrd p {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 720px;
+  }
+  .threads .thrd p strong { color: var(--ink); }
+
+  @media (max-width: 540px) {
+    .editorial { padding: 4.5rem 1.2rem; }
+    .editorial h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
+    .editorial .standfirst { font-size: 1.15rem; padding-left: 0.9rem; }
+    .editorial p { font-size: 1rem; line-height: 1.65; }
+    .editorial h3.subhead { font-size: 1.3rem; margin-top: 2rem; }
+    .pullquote { font-size: 1.25rem; padding-left: 1rem; }
+    .convergence { padding: 4.5rem 1.2rem; }
+    .convergence h2 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    .threads .thrd h4 { font-size: 1.3rem; }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .card, .conv-item.now::before { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Three lifers · Three formats · Still shipping</div>
+    <h1 class="trinity">
+      <span class="joe-c">Kaminkow</span><span class="dot">·</span><span class="eugene-c">Jarvis</span><span class="dot">·</span><span class="george-c">Gomez</span>
+    </h1>
+    <p class="tagline">Pinball. Arcade video. The slot floor. Three of the most consequential designers working in physical-play games — across forty-five years and counting — and the Chicago coin-op spine that links them.</p>
+    <div class="credits-bar">
+      <span>Aristocrat · Joe</span>
+      <span>Raw Thrills · Eugene</span>
+      <span>Stern Pinball · George</span>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</header>
+
+<section id="trio">
+  <div class="section-label">At a glance</div>
+  <h2 class="section-title">Three designers. Three formats. <em>One coin-op tradition.</em></h2>
+  <p class="lede">They came up through the Williams / Bally / Midway / Data East Chicago coin-op machine in the late 1970s and early 1980s. They each chose a different chair — the arcade video cabinet, the pinball playfield, the slot floor — and stayed in it for the next four-and-a-half decades. Today, all three are still designing, still inducted, still patented, still in production. This is what their work looks like.</p>
+
+  <div class="trio">
+
+    <div class="card joe">
+      <div class="floor">Pinball &amp; Slot</div>
+      <h3 class="name"><span class="first">Joe</span>Kaminkow</h3>
+      <div class="role"><strong>Chief Innovation Officer, Aristocrat Gaming.</strong> Six industry halls of fame. 150+ patents. Credited on 1,500+ games. Pinball designer who built the licensed-slot category around <em>Wheel of Fortune</em>.</div>
+      <div class="city">Las Vegas, NV</div>
+      <div class="greatest">Selected works</div>
+      <ul>
+        <li><em>Space Shuttle</em><small>Williams · 1984 · "saved Williams"</small></li>
+        <li><em>Last Action Hero · Jurassic Park · The Simpsons</em><small>Data East · 1990–1993</small></li>
+        <li><em>Apollo 13 · Star Wars Trilogy SE · South Park</em><small>Sega Pinball · 1996–1999</small></li>
+        <li><em>Wheel of Fortune</em><small>IGT · invented the branded-slot category</small></li>
+        <li><em>Hit It Rich!</em><small>Spooky Cool / Zynga · social-casino flagship</small></li>
+        <li><em>Batman '66 · The Beatles</em><small>Stern × Ka-Pow · 2016, 2018</small></li>
+        <li><em>NFL Slot Line</em><small>Aristocrat · 2023 → Super Bowl Jackpots, Winning Drive, Rings of Victory</small></li>
+      </ul>
+    </div>
+
+    <div class="card eugene">
+      <div class="floor">Arcade Video</div>
+      <h3 class="name"><span class="first">Eugene</span>Jarvis</h3>
+      <div class="role"><strong>Founder &amp; President, Raw Thrills.</strong> Designed <em>Defender.</em> Invented the smart bomb, the twin-stick shooter, the 32-bit arcade game, the modern deluxe driving cabinet. The college of computing at DePaul bears his name.</div>
+      <div class="city">Skokie / Glenview, IL</div>
+      <div class="greatest">Selected works</div>
+      <ul>
+        <li><em>Defender</em><small>Williams · 1981 · smart bomb, ~$1B lifetime</small></li>
+        <li><em>Stargate · Robotron: 2084 · Blaster</em><small>Williams / Vid Kidz · 1981–1983</small></li>
+        <li><em>NARC</em><small>Williams · 1988 · first 32-bit arcade game</small></li>
+        <li><em>Smash TV · Total Carnage</em><small>Williams · 1990–1992</small></li>
+        <li><em>Cruis'n USA · Cruis'n World · Cruis'n Exotica</em><small>Midway / Nintendo · 1994–1999</small></li>
+        <li><em>Big Buck Hunter Pro · Jurassic Park Arcade</em><small>Raw Thrills · 2006, 2013</small></li>
+        <li><em>Cruis'n Blast · Halo: Fireteam Raven</em><small>Raw Thrills · 2017, 2018</small></li>
+      </ul>
+    </div>
+
+    <div class="card george">
+      <div class="floor">Arcade · Pinball · Console</div>
+      <h3 class="name"><span class="first">George</span>Gomez</h3>
+      <div class="role"><strong>EVP / Chief Creative Officer, Stern Pinball.</strong> The only living designer with marquee credits in arcade video (<em>Tron</em>), pinball (<em>Lord of the Rings, Deadpool</em>) and console (<em>NBA Ballers</em>). Industrial designer by training, BFA UIC 1978.</div>
+      <div class="city">Elk Grove Village, IL</div>
+      <div class="greatest">Selected works</div>
+      <ul>
+        <li><em>Tron · Spy Hunter · Satan's Hollow</em><small>Bally Midway · 1982–1983 · cabinet + team lead</small></li>
+        <li><em>Corvette · Johnny Mnemonic · Monster Bash</em><small>Williams · 1994–1998</small></li>
+        <li><em>NBA Ballers trilogy</em><small>Midway · 2004–2008 · Xbox / PS2 / 360 / PS3</small></li>
+        <li><em>The Lord of the Rings</em><small>Stern · 2003 · the game that helped save Stern Pinball</small></li>
+        <li><em>Transformers · Avengers · Deadpool</em><small>Stern · 2011–2018</small></li>
+        <li><em>James Bond 007</em><small>Stern · 2022 · pinch-hit from Steve Ritchie</small></li>
+        <li><em>Pokémon</em><small>Stern · 2026 · SPIKE 3 hardware</small></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───── EUGENE JARVIS ───── -->
+<section class="editorial eugene" id="jarvis">
+  <p class="runline">I · Arcade Video</p>
+  <h2><span class="given">Eugene</span>Jarvis</h2>
+  <p class="standfirst">The closest thing the action arcade game has to a single founding designer — and the only one of his Williams-era peers who never left the floor.</p>
+
+  <div class="factrow">
+    <div class="fact"><div class="k">Born</div><div class="v">Jan 27, 1955 · Palo Alto</div></div>
+    <div class="fact"><div class="k">Studio</div><div class="v"><strong>Raw Thrills</strong> · Skokie, IL</div></div>
+    <div class="fact"><div class="k">Founded</div><div class="v">2001 · with Eloff + Deo</div></div>
+    <div class="fact"><div class="k">School</div><div class="v">Berkeley EECS '76 · Stanford GSB '86</div></div>
+  </div>
+
+  <p>In the basement of Berkeley's Birge Hall in 1973, Jarvis played <em>Spacewar!</em> on a PDP-1. He took the first FORTRAN class his high school offered, finished EECS at Cal in '76, walked into Hewlett-Packard to write a COBOL compiler, and quit after three days. He took the train to Sunnyvale, started programming microprocessor pinball machines for Atari under Nolan Bushnell, and earned the nickname <em>Dr. J</em> for solving an "impossible" board-level problem before he turned twenty-five.</p>
+
+  <p>By 1979 he was at Williams Electronics in Chicago, where <em>Space Invaders</em> had pulled him from the pinball line into video. In November 1980 he shipped <strong>Defender</strong>. It invented the smart bomb, the horizontal-scrolling shooter, the inertial-thrust control scheme, the on-screen mini-radar, and a first true particle-effects engine running on a 6809. Sixty thousand cabinets went out. Lifetime arcade revenue crossed one billion dollars. The released 6809 source on GitHub still carries his marginal note from January 21, 1981: <em>"PRAY IT WORKS. NOTE: BEWARE OF ORDER OF LOADING. LOOK OUT FOR THE SELECTED BLOCK SHIT. — DR J."</em></p>
+
+  <blockquote class="pullquote">
+    There is a magic, immediacy, and presence in the arcade that can never be duplicated by a console or cell phone experience.
+    <cite>Eugene Jarvis · Arcade Attack, 2020</cite>
+  </blockquote>
+
+  <h3 class="subhead">Six months. Three days to fun.</h3>
+  <p>In 1982, working out of Larry DeMar's spare bedroom on a $30,000 Motorola Exorcisor, Jarvis and DeMar built <strong>Robotron: 2084</strong> in six months. Two joysticks — one because Jarvis had broken his right hand in a car wreck after <em>Stargate</em>, the other because he'd always hated <em>Berzerk</em>'s run-and-shoot keybind. Twin-stick shooting was invented out of pure ergonomic necessity. Jarvis's account at GDC 2014: <em>"We got the basic game running in 3 days, and it was insanely fun right off the bat."</em> Then came <em>Blaster</em> (1983), <em>NARC</em> (1988, the first 32-bit arcade game, built on the TI TMS34010 that would later run <em>Mortal Kombat</em> and <em>NBA Jam</em>), <em>Smash TV</em> (1990, with Mark Turmell), <em>Total Carnage</em>, and the <strong>Cruis'n</strong> trilogy he co-developed with Nintendo through the mid-1990s.</p>
+
+  <p>And then, when most of his generation retired or went into film, Jarvis stayed. In 2001 he founded <strong>Raw Thrills</strong> in Skokie, Illinois with Andrew Eloff and Deepak Deo — seven people, mostly Midway alumni, betting on a thesis nobody else still held: that <em>location-based entertainment is a permanent format</em>. In 2006 he acquired George Petro's <strong>Play Mechanix</strong> and the <em>Big Buck Hunter</em> franchise. He directed <strong>Cruis'n Blast</strong> personally in 2017. He executive-produced <strong>Halo: Fireteam Raven</strong> with 343 Industries in 2018 — a five-year build, 130-inch 4K, four mounted machine guns, the largest collaboration in modern arcade history. In 2024 the AAMA named Raw Thrills Manufacturer of the Year. In 2025 the World Video Game Hall of Fame inducted <em>Defender</em>.</p>
+
+  <div class="works">
+    <div class="w"><em>Defender</em><small>Williams · 1981</small></div>
+    <div class="w"><em>Stargate</em><small>Williams / Vid Kidz · 1981</small></div>
+    <div class="w"><em>Robotron: 2084</em><small>Williams / Vid Kidz · 1982</small></div>
+    <div class="w"><em>Blaster</em><small>Williams / Vid Kidz · 1983</small></div>
+    <div class="w"><em>NARC</em><small>Williams · 1988</small></div>
+    <div class="w"><em>Smash TV</em><small>Williams · 1990</small></div>
+    <div class="w"><em>Total Carnage</em><small>Williams · 1992</small></div>
+    <div class="w"><em>Cruis'n USA / World / Exotica</em><small>Midway · 1994–1999</small></div>
+    <div class="w"><em>Big Buck Hunter Pro</em><small>Raw Thrills / Play Mechanix · 2006</small></div>
+    <div class="w"><em>Jurassic Park Arcade</em><small>Raw Thrills · 2013</small></div>
+    <div class="w"><em>Cruis'n Blast</em><small>Raw Thrills · 2017 (Switch 2021)</small></div>
+    <div class="w"><em>Halo: Fireteam Raven</em><small>Raw Thrills × 343 / Microsoft · 2018</small></div>
+  </div>
+
+  <h3 class="subhead">Patron of the rising generation.</h3>
+  <p>In 2022, Eugene and his wife — opera director <strong>Sasha Gerritson</strong> — made the largest gift in DePaul University's history. The college of computing and digital media was renamed the <strong>Eugene P. Jarvis College of Computing and Digital Media</strong>. In 2025 UC Berkeley dedicated the <strong>Eugene Jarvis Auditorium</strong> and <strong>Raw Thrills Lounge</strong> at its new Grimes Engineering Center. He has been DePaul's <em>Game Designer in Residence</em> since 2008 — the first one ever appointed. He is in the World Video Game Hall of Fame, the AIAS Pioneer class of 2014, the International Video Game Hall of Fame, and the AAMA Amusement Industry Hall of Fame.</p>
+
+  <p>And in 2024–25, he and Raw Thrills underwrote the <strong>inaugural <a href="https://collegiategameschallenge.com/" target="_blank" rel="noopener">Collegiate Games Challenge</a></strong> — a national, $90,000 student competition co-presented with <strong>Gay Gaming Professionals</strong> (the 501(c)(3) where the trinity-thread author serves as president). The challenge invited 21 university programs — DePaul, Drexel, Indiana, Michigan State, Northwestern, Occidental, Penn State, Purdue, Rutgers, Ohio State, Iowa, UCLA, Illinois, Maryland, Michigan, Minnesota Twin Cities, Nebraska–Lincoln, Oregon, USC, Washington, and Wisconsin–Madison — to compete across three categories: <em>Interactive</em> (original student games), <em>Business</em> (go-to-market plans), and <em>Cinematic</em> (game trailers). The inaugural awards were judged by Ed Fries, Leo Olebe, Amir Satvat, and Gordon Bellamy alongside leaders from EA, Ubisoft, and Raw Thrills, livestreamed on GGP's Twitch with IGN as media partner in August 2025. Michigan State's <em>Daemon</em> took second in Interactive; <em>Guilds of Greybrook</em> earned an honorable mention; USC, SCAD, and Indiana University projects were recognized in the same class.</p>
+
+  <p>It is the same instinct as the DePaul gift and the Berkeley auditorium, made tactile: <em>find the next generation of designers on the campuses, pay them while they are still students, put their work on a national stage.</em> Eugene's name appears on a building, an auditorium, and now an inaugural class.</p>
+
+  <blockquote class="pullquote">
+    You have to find your passion. It's an iterative process. Life is iterative.
+    <cite>Eugene Jarvis · UC Berkeley Engineering, 2025</cite>
+  </blockquote>
+</section>
+
+<!-- ───── GEORGE GOMEZ ───── -->
+<section class="editorial george" id="gomez">
+  <p class="runline">II · Pinball &amp; the Cross-Format Chair</p>
+  <h2><span class="given">George</span>Gomez</h2>
+  <p class="standfirst">The only living designer with marquee credits in arcade video, pinball, and console games — and the executive who has run Stern Pinball's design studio since the summer of 2011.</p>
+
+  <div class="factrow">
+    <div class="fact"><div class="k">Born</div><div class="v">June 1, 1955 · Havana</div></div>
+    <div class="fact"><div class="k">Studio</div><div class="v"><strong>Stern Pinball</strong> · EVP / CCO</div></div>
+    <div class="fact"><div class="k">Training</div><div class="v">BFA Industrial Design · UIC '78</div></div>
+    <div class="fact"><div class="k">Pinball credits</div><div class="v">23 game designs</div></div>
+  </div>
+
+  <p>He was born <strong>Jorge Alfredo Gomez Marth</strong> in Havana in 1955. His family fled Castro's Cuba when he was seven and settled in Chicago. He came out of UIC's School of Architecture, Design and the Arts in 1978 with a BFA in industrial design — the only credential on this site that begins with "I drew the cabinet." Right out of school he joined <strong>Bally / Midway</strong> in the bricked-up final hours of the coin-op golden age. By 1981 he was doing the joystick and control-panel work on <em>Gorf</em>; by 1982 he was the industrial designer of one of the most identifiable arcade cabinets ever produced.</p>
+
+  <p>That cabinet was <strong>Tron</strong>. Black-light fluorescent striping. A glowing blue floor. An illuminated joystick. He pitched the project with Bill Adams and Atish Ghosh and beat out Dave Nutting Associates and Arcade Engineering for the assignment. The next year he was team lead on <strong>Spy Hunter</strong>. A restored sit-down <em>Discs of Tron</em> cabinet trades for fifteen thousand dollars today; in his 2025 AAMA Hall of Fame induction, Pete Gustafson singled out <em>Tron</em> and <em>Spy Hunter</em> as the work that earned him the floor.</p>
+
+  <blockquote class="pullquote">
+    Iterate, iterate, iterate. Try stuff as fast as you can — it's the only way you can get to fun.
+    <cite>George Gomez · The Pinball Chick, 2021</cite>
+  </blockquote>
+
+  <h3 class="subhead">A toymaker decade, then back to the floor.</h3>
+  <p>After the 1983 video crash he went to <strong>Marvin Glass &amp; Associates</strong>, the legendary Chicago toy-invention house, and designed Tonka's <em>Splash Darts</em> and Galoob's <em>Crash-N-Bash</em>. He spent the late '80s and early '90s at <strong>Grand Products</strong> running contract coin-op for Sega, Jaleco, and Taito — and co-developing <strong>BattleTech Game Centers</strong>, the first commercial location-based networked-VR simulator network. Six-player giant-mech pods in dedicated venues, twenty-five years before <em>Pokémon GO</em>.</p>
+
+  <p>In 1993 he joined Williams pinball, hired to do novelty games and immediately reassigned to the playfield. He shipped <em>Corvette</em> (1994), <em>Johnny Mnemonic</em> (1995, the proto-haptic Cyberglove machine), <em>NBA Fastbreak</em> (1997), and his Williams flagship — <strong>Monster Bash</strong> (1998), originally pitched as <em>Monster Mash</em> until Bobby Pickett's song-licensing came back too expensive and the title became a verb. He co-developed the hybrid Pinball 2000 platform on <em>Revenge from Mars</em>. Then Williams shut down pinball in October 1999.</p>
+
+  <p>For the next twelve years he ran console franchises at <strong>Midway Games</strong> — Executive Producer on the <strong>NBA Ballers</strong> trilogy (Xbox, PS2, Xbox 360, PS3, 2004–2008). It is the credential almost no other living pinball designer has: he has shipped console-AAA from the producer chair. Through that decade he moonlighted as the outside-consultant designer for the resurrected <strong>Stern Pinball</strong>, where in 2003 he designed <strong>The Lord of the Rings</strong> — the machine that has been called <em>a master class in theme integration</em>, and the one widely credited with helping save Stern in the post-Williams collapse.</p>
+
+  <blockquote class="pullquote">
+    I believe that integrating the theme is pivotal, because the idea is to immerse the player in the world of the theme's fiction.
+    <cite>George Gomez · The Pinball Chick, 2021</cite>
+  </blockquote>
+
+  <h3 class="subhead">EVP / Chief Creative Officer, July 2011 — present.</h3>
+  <p>He joined Stern full-time in the summer of 2011 and has run the design bench since: Steve Ritchie, Pat Lawlor, the late <strong>Lyman Sheats Jr.</strong>, John Borg, Keith Elwin, Brian Eddy, Elliot Eismin, Jack Danger. Every Stern machine to ship since 2011 has passed under his hand. His own designs in that window: <em>Transformers</em> (his first full-time game), <em>The Avengers</em>, <em>Batman 66</em> (concept by Joe Kaminkow's Ka-Pow), <em>The Beatles</em> (also Ka-Pow), <em>Deadpool</em> (called by some critics his greatest work), the 2017 <em>Supreme × Stern</em> streetwear collab, <em>James Bond 007</em> (a pinch-hit when Steve Ritchie left mid-development), and 2026's <strong>Pokémon</strong> on the Spike 3 platform — the first Stern game where the licensor supplied every piece of art in-house.</p>
+
+  <div class="works">
+    <div class="w"><em>Tron · Discs of Tron</em><small>Bally Midway · 1982–83 · cabinet</small></div>
+    <div class="w"><em>Spy Hunter</em><small>Bally Midway · 1983 · team lead</small></div>
+    <div class="w"><em>Corvette</em><small>Bally · 1994 · pinball debut</small></div>
+    <div class="w"><em>Johnny Mnemonic</em><small>Williams · 1995</small></div>
+    <div class="w"><em>Monster Bash</em><small>Williams · 1998</small></div>
+    <div class="w"><em>Revenge from Mars</em><small>Bally · 1999 · Pinball 2000</small></div>
+    <div class="w"><em>NBA Ballers trilogy</em><small>Midway · 2004 / 2006 / 2008 · EP</small></div>
+    <div class="w"><em>The Lord of the Rings</em><small>Stern · 2003</small></div>
+    <div class="w"><em>The Sopranos</em><small>Stern · 2005</small></div>
+    <div class="w"><em>Transformers · Avengers</em><small>Stern · 2011–2012</small></div>
+    <div class="w"><em>Deadpool</em><small>Stern · 2018</small></div>
+    <div class="w"><em>James Bond 007</em><small>Stern · 2022</small></div>
+    <div class="w"><em>Pokémon</em><small>Stern · 2026 · SPIKE 3</small></div>
+  </div>
+
+  <p>He turned seventy on June 1, 2025. Three months later AAMA inducted him into the Amusement Industry Hall of Fame; he had been a Pinball Expo Hall of Fame inductee since 2008. His patent portfolio reads like a Stern engineering org chart — co-inventors Gary Stern, Mark Guidarelli, John Rotharmel — and covers Stern's <em>Insider Connected</em> network platform, modifiable-music architecture, and the cabinet-construction IP for the Spike platform itself.</p>
+
+  <blockquote class="pullquote">
+    I'm really most proud of having created the premier pinball design studio in the world. We have a great combination of talent, experience and energy; they are truly the best in the world at what they do.
+    <cite>George Gomez · Gaming.net</cite>
+  </blockquote>
+</section>
+
+<!-- ───── JOE KAMINKOW ───── -->
+<section class="editorial joe" id="kaminkow">
+  <p class="runline">III · Pinball &amp; the Branded Slot</p>
+  <h2><span class="given">Joe</span>Kaminkow</h2>
+  <p class="standfirst">A pinball designer who converted licensed pop-culture IP into a play form, then carried that instinct into the slot floor and rewrote the economics of the casino premium aisle.</p>
+
+  <div class="factrow">
+    <div class="fact"><div class="k">School</div><div class="v">Curry College '83</div></div>
+    <div class="fact"><div class="k">Studio</div><div class="v"><strong>Aristocrat Gaming</strong> · CIO · Las Vegas</div></div>
+    <div class="fact"><div class="k">Patents</div><div class="v">150+ gaming patents</div></div>
+    <div class="fact"><div class="k">IP credits</div><div class="v">1,500+ games shipped</div></div>
+  </div>
+
+  <p>His father was a Bally VP. He grew up around vending and coin-op the way other kids grew up around hardware stores. He started a tiny studio called <strong>Logical Highs</strong> out of Curry College in 1983 and was at <strong>Williams</strong> by the mid-1980s, where in 1984 he licensed NASA imagery, shipped <em>Space Shuttle</em>, and was credited — in the company's own folklore — with saving Williams' pinball line. In November 1986 he co-founded <strong>Data East Pinball</strong> with Gary Stern after Konami passed on their pitch. He ran the design floor there through Sega's 1994 acquisition and stayed on as EVP of Game Design through 1999. The Data East / Sega Pinball machines of that decade — <em>Last Action Hero</em>, <em>The Simpsons</em>, <em>Jurassic Park</em>, <em>WWF Royal Rumble</em>, <em>Apollo 13</em>, <em>Space Jam</em>, <em>Star Wars Trilogy: Special Edition</em>, <em>South Park</em> — were a sustained argument that pinball was, fundamentally, a licensing format.</p>
+
+  <p>In 1999 he carried that argument to <strong>IGT</strong> in Reno. Before he got there, branded-IP slots were a rarity. He built the <strong>Wheel of Fortune</strong> family — the spinning-wheel bonus that earned him IGT's <em>Inventor of the Year</em> — and the category economics that <em>Sex and the City</em>, <em>The Price Is Right</em>, and <em>Ghostbusters</em> rode in behind. Branded slots became the dominant premium-floor format. He invented the genre's business model.</p>
+
+  <blockquote class="pullquote">
+    I am as excited today as I was in 1999. We are just getting started. The more computer power and lighting technology changes, the more advanced things we can do.
+    <cite>Joe Kaminkow · CDC Gaming, 2023</cite>
+  </blockquote>
+
+  <h3 class="subhead">The break, then social casino, then back.</h3>
+  <p>He took a sabbatical around 2010 — reality-TV concepts, Broadway shows, a minority stake in the Harrisburg Senators. <em>"Sometimes you grind yourself into the trees and you can't see the forest,"</em> he told the Las Vegas Review-Journal. <em>"Time away allowed me to catch my breath and gain a better perspective."</em> Around 2011 he co-founded <strong>Spooky Cool Labs</strong> in Chicago with a forty-person bench drawn from Aristocrat, IGT, and WMS. Zynga acquired Spooky Cool on June 19, 2013. He spent the next decade as Zynga's Chief Creative Officer / Chief Game Designer, shipping <strong>Hit It Rich!</strong>, <em>Wizard of Oz</em>, <em>Willy Wonka</em>, and the social-casino <em>Harry Potter</em> match games.</p>
+
+  <p>In October 2022 he became <strong>Chief Innovation Officer at Aristocrat Gaming</strong>. Scope: land-based slots, Pixel United mobile, and Anaxi online RMG. His 2014 Aristocrat launch slate had already put five branded titles on the floor in months — <em>The Big Bang Theory</em>, <em>Batman</em>, <em>Flashdance</em>, <em>Tarzan</em>, <em>The Rolling Stones</em>, <em>Superman</em>. After taking the CIO chair he led the company's two-year build of the <strong>NFL slot line</strong> — <em>Super Bowl Jackpots</em>, <em>Overtime Cash</em>, <em>Super Bowl Link</em>, <em>NFL Kickoff</em>, <em>Winning Drive</em>, <em>Rings of Victory</em> — and guided the <em>Buffalo</em> franchise hardware refresh.</p>
+
+  <p>Alongside the day job he runs <strong>Ka-Pow Pinball</strong>, the personal studio he founded around 2014. Ka-Pow brings concepts to Stern, which is where his original Data East co-founder Gary Stern now sits, and where George Gomez runs the design bench. <strong>Batman '66</strong> (2016) and <strong>The Beatles</strong> (2018) are the canonical Ka-Pow × Stern collaborations — Joe upstream on concept, George downstream as CCO, Gary on the cabinet they both build for.</p>
+
+  <div class="works">
+    <div class="w"><em>Space Shuttle</em><small>Williams · 1984</small></div>
+    <div class="w"><em>Time Machine · Secret Service</em><small>Data East · 1988</small></div>
+    <div class="w"><em>Back to the Future · The Simpsons</em><small>Data East · 1990</small></div>
+    <div class="w"><em>TMNT · Batman · Star Trek 25th</em><small>Data East · 1991</small></div>
+    <div class="w"><em>Last Action Hero · Jurassic Park</em><small>Data East · 1993</small></div>
+    <div class="w"><em>WWF Royal Rumble · Guns N' Roses</em><small>Data East · 1994</small></div>
+    <div class="w"><em>Apollo 13 · Space Jam</em><small>Sega Pinball · 1996</small></div>
+    <div class="w"><em>Star Wars Trilogy: Special Edition</em><small>Sega Pinball · 1997</small></div>
+    <div class="w"><em>South Park</em><small>Sega Pinball · 1999</small></div>
+    <div class="w"><em>Wheel of Fortune</em><small>IGT · branded-slot genesis</small></div>
+    <div class="w"><em>Hit It Rich!</em><small>Spooky Cool / Zynga</small></div>
+    <div class="w"><em>Batman '66 · The Beatles</em><small>Stern × Ka-Pow · 2016, 2018</small></div>
+    <div class="w"><em>NFL Slot Line</em><small>Aristocrat · 2023 →</small></div>
+  </div>
+
+  <h3 class="subhead">Six halls of fame.</h3>
+  <p>Pinball Expo Hall of Fame (2004). American Gaming Association Gaming Hall of Fame (2017). EKG Slot Awards Hall of Fame, first-ever inductee (2020). AAMA Amusement Expo International Hall of Fame, inaugural class (2023). Licensing International Hall of Fame (2024). His ICE Barcelona 2025 keynote — <em>"Attracting a Diverse Global Audience Through Branded IP"</em> — was less a talk and more a forty-year audit of his own thesis. He turns up at Pinball Expo in Chicago every October, hosting his <em>Homebrew Industry Awards</em> at the Homebrew Booth alongside Gary Stern. He still designs. He still ships. His Gmail handle is <em>joesecretsauce@gmail.com</em>.</p>
+
+  <blockquote class="pullquote">
+    I still get a great thrill out of people loving something that I create, and seeing the magic and delight of the players.
+    <cite>Joe Kaminkow · Las Vegas Review-Journal</cite>
+  </blockquote>
+</section>
+
+<!-- ───── CONVERGENCE ───── -->
+<section class="convergence" id="convergence">
+  <div class="section-label">The convergence</div>
+  <h2>What <span class="a-joe">Joe</span>, <span class="a-eugene">Eugene</span>, and <span class="a-george">George</span> share — that almost nobody else does.</h2>
+  <p class="lede">Their work looks distinct from across the room. Up close, they are three angles on the same machine: the Chicago coin-op tradition that ran from Bally and Williams to Midway and Data East and now to Stern, Raw Thrills, and Aristocrat. Every one of them came up through it. None of them ever left.</p>
+
+  <div class="threads">
+
+    <div class="thrd">
+      <div class="label">Chicago spine</div>
+      <div>
+        <h4>Williams · Bally · Midway · Data East</h4>
+        <p>All three trained inside the same square mile of Chicagoland engineering culture — the bench that produced <em>Defender</em>, <em>Tron</em>, <em>Spy Hunter</em>, <em>Mortal Kombat</em>, <em>NBA Jam</em>, and the pinball canon of the 1980s and 1990s. They did not meet through pinball conventions; they met through the industry that hired them in 1977, 1978, and 1984 respectively.</p>
+      </div>
+    </div>
+
+    <div class="thrd">
+      <div class="label">Branded IP</div>
+      <div>
+        <h4>Tron · Halo · Star Wars · Wheel of Fortune · Bond · Pokémon · NFL</h4>
+        <p>Each one made the same bet — that licensed pop-culture IP could anchor a coin-op product — and proved it on a different format. George drew the <em>Tron</em> cabinet in 1982. Joe shipped <em>Star Wars Trilogy</em> in 1997 and built <em>Wheel of Fortune</em> at IGT. Eugene executive-produced <em>Halo: Fireteam Raven</em> with 343 in 2018. Between them the licensors include <strong>Disney, Universal, Microsoft, Nintendo, Marvel, DC, Warner Bros., Hasbro, Mattel, Konami, Mojang, Paramount, Toho, the NFL, and The Pokémon Company.</strong></p>
+      </div>
+    </div>
+
+    <div class="thrd">
+      <div class="label">Gary Stern's orbit</div>
+      <div>
+        <h4>One pinball roof, three relationships</h4>
+        <p>Joe co-founded Data East Pinball with <strong>Gary Stern</strong> in November 1986. George is Gary's hand-picked Chief Creative Officer at Stern Pinball, the company Gary built out of the ashes of Sega Pinball. Eugene is the Williams-era statesman whose company collaborates with Stern's licensors and partners on overlapping IP. The three of them are the three closest non-Stern people to the only major American pinball manufacturer left standing.</p>
+      </div>
+    </div>
+
+    <div class="thrd">
+      <div class="label">Forty-five years</div>
+      <div>
+        <h4>Still designing in 2026</h4>
+        <p>Eugene directed <em>Cruis'n Blast</em> in 2017 at sixty-two, executive-produced <em>Halo: Fireteam Raven</em> at sixty-three, sat for the World Video Game Hall of Fame induction at seventy. George turned seventy on June 1, 2025 and shipped <em>Pokémon</em> for Stern in Q1 of 2026. Joe took the Aristocrat CIO chair in 2022 and led the NFL line through 2024. Nobody is winding down. <em>"I am as excited today as I was in 1999."</em></p>
+      </div>
+    </div>
+
+    <div class="thrd">
+      <div class="label">Patron-of-students era</div>
+      <div>
+        <h4>The college, the auditorium, the inaugural class</h4>
+        <p>Eugene and Sasha Gerritson endowed the <strong>Eugene P. Jarvis College of Computing and Digital Media</strong> at DePaul in 2022 and the <strong>Eugene Jarvis Auditorium</strong> at UC Berkeley in 2025 — and in 2024–25 Raw Thrills co-presented the inaugural <strong>Collegiate Games Challenge</strong> with Gay Gaming Professionals, $90,000 paid out across 21 university programs in three categories. George keeps the Stern bench an open mentorship — Keith Elwin came in from the PAPA-champion competitive scene, Jack Danger from the streamer world, Brian Eddy from Williams. Joe headlines ICE Barcelona, hosts the Pinball Expo Homebrew Awards, and inducts the next class into the Pinball Expo Hall of Fame. They aren't preserving the tradition — they're staffing it forward.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p class="built">Three lifers. Three formats. Still shipping.</p>
+  <p class="links">
+    <a href="https://rawthrills.com/" target="_blank" rel="noopener">Raw Thrills</a>
+    ·
+    <a href="https://sternpinball.com/" target="_blank" rel="noopener">Stern Pinball</a>
+    ·
+    <a href="https://www.aristocrat.com/" target="_blank" rel="noopener">Aristocrat Gaming</a>
+  </p>
+  <p class="links" style="margin-top:0.8rem;">
+    <span style="color:var(--ink-mute);">Skokie · Elk Grove Village · Las Vegas</span>
+  </p>
+  <p class="signoff">A tribute by Gordon Bellamy · 2026</p>
+</footer>
+
+</body>
+</html>
